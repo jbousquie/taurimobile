@@ -1,7 +1,4 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
 
 
 import {
@@ -23,27 +20,22 @@ if (
 }
 
 
-
-
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
+    <h1>TauriMobile</h1>
     <p id="geolocation">
     </p>
+    <p>cpt : <span id="compteur">0</span></p>
   </div>
 `;
+
+var compteur = 0;
+setInterval(() => {
+  compteur++;
+  document.querySelector<HTMLParagraphElement>('#compteur')!.textContent = compteur.toString();
+  console.log(compteur);
+}, 1000);
+
 
 
 if (permissions.location === 'granted') {
@@ -63,4 +55,3 @@ if (permissions.location === 'granted') {
 
 
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
